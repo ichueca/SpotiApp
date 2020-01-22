@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-2 text-center">
+      <img [src]="artista.images[1] | image"  style="min-width:50px;width:100px" class="img-thumbnail rounded-circle m-2">
+    </div>
+    <div class="col">
+      <h3>{{ artista.name }}</h3>
+      <p>
+        <a [href]="artista.external_urls.spotify" target="_blank">Página Artista Spotify</a>
+      </p>
+    </div>
+    <div class="col-4">
+      <button class="btn btn-outline-success mt-2" routerLink="home">Volver</button>
+    </div>
+  </div>
+<div class="row">
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Album</th>
+        <th scope="col">Canción</th>
+        <th scope="col">Duración</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cancion of canciones">
+        <td><img [src]='cancion.album.images[0] | image' style="width:80px"> {{cancion.album.name}}</td>
+        <td>{{cancion.name}}</td>
+        <td>{{cancion.duration_ms | ms}}</td>
+        <!--<td><audio controls [src]="cancion.preview_url"></audio></td>-->
+        <td><iframe [src]="cancion.id | sanitize:'https://open.spotify.com/embed/track/'" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,59 @@
+<div class="row m-2">
+<input type="text" #busqueda class="form-control" placeholder="Nombre del artista a buscar"
+    (keyup)="buscar($event,busqueda)">
+</div>
+<div class="card-columns">
+    <div *ngFor="let a of artistas" class="card" style="width: 18rem;">
+        <a [routerLink]="['/artista',a.id]"> <img class="card-img-top" [src]="a.images[0] | image" alt="Card image cap"></a>
+        <div class="card-body">
+          <h5 class="card-title">{{a.name}}</h5>
+          <span class="badge badge-pill badge-info">{{a.followers.total | number}} seguidores</span>
+          
+        </div>
+      </div>
+</div>
+
+<!--<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Pipe</th>
+        <th scope="col">Resultado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>123456.789 | currency  </td>
+        <td>{{123456.789 | currency }}</td>
+      </tr>
+      <tr>
+        <td>123456.789 | currency:'EUR':'code'   </td>
+        <td>{{123456.789 | currency:'EUR':'code' }}</td>
+      </tr>
+      <tr>
+        <td>123456.789 | currency:'EUR':'symbol'  </td>
+        <td>{{123456.789 | currency:'EUR':'symbol':'6.2':'es' }}</td>
+      </tr>
+      <tr>
+        <td>fecha| date  </td>
+        <td>{{fecha | date}}</td>
+      </tr>
+      <tr>
+        <td>fecha| date:'long'  </td>
+        <td>{{fecha | date:'long':undefined:'es'}}</td>
+      </tr>
+      <tr>
+        <td>123456.789 | number  </td>
+        <td>{{123456.789 | number }}</td>
+      </tr>
+      <tr>
+        <td>123456.789 | number  </td>
+        <td>{{123456.789 | number:'10.2-2' }}</td>
+      </tr>
+      <tr>
+        <td>[1,2,3,4] | slice:1:4  </td>
+        <td>{{[1,2,3,4] | slice:1:4 }}</td>
+      </tr>
+    </tbody>
+  </table>-->
+
+
